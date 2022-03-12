@@ -1,23 +1,14 @@
-import React from 'react'
+import React, {useState} from 'react';
 import Input from "./Input"
 
-class Form extends React.Component {
+export default function Form({placeholder}) {
+  const [value, setValue] = useState('');
 
-  state = {
-    value: "",
+  const changeHandler = (event) => {
+    setValue(event.target.value)
   }
 
-  changeHandler = (event) => {
-    this.setState({
-      value: event.target.value
-    })
-  }
-
-  render() {
-    return (
-      <Input changeHandler={this.changeHandler} value={this.state.value} placeholder={this.props.placeholder} />
-    )
-  }
+  return (
+    <Input changeHandler={changeHandler} value={value} placeholder={placeholder} />
+  )
 }
-
-export default Form
