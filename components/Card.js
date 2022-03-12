@@ -8,7 +8,7 @@ export default function Card({plant = {}}) {
         <h1 className="text-center"><b>{polishName}</b>({latinName})</h1>
         <p className="w-48 text-justify">{description}</p>
         <div className="flex flex-col">
-          <h2 className="text-left bg-gray-600 w-max px-4 rounded-xl">{family}</h2>
+          <h2 className="text-left bg-gray-600 w-max px-4 rounded-xl">{family || 'Nieznany'}</h2>
         </div>
       </div>
     </div>
