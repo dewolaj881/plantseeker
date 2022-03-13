@@ -1,8 +1,8 @@
-import useApiFetch from '../utils/useFetch.js';
+import {useSearchPlants} from '../utils/useFetch.js';
 import Card from './Card.js';
 
 export default function Search({value}) {
-  const {isLoading, data = [], error} = useApiFetch(`getallplants?query=${encodeURIComponent(value)}`); // TODO API nie wspiera wyszukiwania!!!
+  const {isLoading, data = [], error} = useSearchPlants(value);
 
   if (isLoading) {
     return (
