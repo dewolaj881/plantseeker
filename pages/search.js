@@ -1,15 +1,23 @@
-import Card from '../components/Card'
-import Form from '../components/Form'
+import {QueryClient, QueryClientProvider} from 'react-query';
+import Input from '../components/Input.js';
+import Search from '../components/Search.js';
+import {useState} from 'react';
+
+const queryClient = new QueryClient();
 
 export default function Home() {
+  const [value, setValue] = useState('');
+
+  const changeHandler = (event) => {
+    setValue(event.target.value)
+  }
+
   return (
     <div className="bg-main h-screen">
-      <Form placeholder="Wyszukaj..."/>
-      <div className="flex space-x-8">
-        <Card/>
-        <Card/>
-        <Card/>
-      </div>
+      <Input changeHandler={changeHandler} value={value} placeholder="Wyszukaj..."/>
+      <QueryClientProvider client={queryClient}>
+        <Search value={value}/>
+      </QueryClientProvider>
     </div>
   )
 }
