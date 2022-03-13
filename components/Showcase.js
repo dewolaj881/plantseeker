@@ -7,7 +7,7 @@ export default function Showcase() {
       <p className="text-showcaseSecondary text-center">Start taking care of your plants, like it always should have been.</p>
       <div className="flex justify-center space-x-4 mt-16">
         <Button className="buttonExplore">Explore</Button>
-        <a href='../search'>
+        <a href='/plants/search'>
         <Button className="buttonSearch">Search Now</Button>
         </a>
       </div>

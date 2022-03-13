@@ -35,12 +35,12 @@ export default function Example() {
                 <div className="flex-shrink-0 flex items-center">
                   <img
                     className="block lg:hidden h-8 w-auto"
-                    src="../img/leaf.png"
+                    src="/plants/img/leaf.png"
                     alt="PlantSeeker"
                   />
                   <img
                     className="hidden lg:block h-8 w-auto"
-                    src="../img/leaf.png"
+                    src="/plants/img/leaf.png"
                     alt="PlantSeeker"
                   />
                 </div>
