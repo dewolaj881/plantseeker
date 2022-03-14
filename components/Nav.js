@@ -7,6 +7,7 @@ const navigation = [
   { name: 'Home', href: '#', current: true },
   { name: 'Explore', href: '#', current: false },
   { name: 'About Project', href: '#', current: false },
+  { name: 'Admin Panel', href: 'https://cfgpanel.herokuapp.com/', current: false },
 ]
 
 function classNames(...classes) {
