@@ -4,10 +4,9 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 
 const navigation = [
-  { name: 'Home', href: '#', current: true },
-  { name: 'Explore', href: '#', current: false },
-  { name: 'About Project', href: '#', current: false },
-  { name: 'Admin Panel', href: 'https://cfgpanel.herokuapp.com/', current: false },
+  { name: 'Strona główna', href: 'plants', current: true },
+  { name: 'Dbaj o rośliny', href: 'plants/explore', current: false },
+  { name: 'Panel Administratora', href: 'https://cfgpanel.herokuapp.com/', current: false },
 ]
 
 function classNames(...classes) {
@@ -24,7 +23,7 @@ export default function Example() {
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
                 <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-white hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                  <span className="sr-only">Open main menu</span>
+                  <span className="sr-only">Otwórz menu główne</span>
                   {open ? (
                     <XIcon className="block h-6 w-6" aria-hidden="true" />
                   ) : (
@@ -33,18 +32,20 @@ export default function Example() {
                 </Disclosure.Button>
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-between">
-                <div className="flex-shrink-0 flex items-center">
-                  <img
-                    className="block lg:hidden h-8 w-auto"
-                    src="/plants/img/leaf.png"
-                    alt="PlantSeeker"
-                  />
-                  <img
-                    className="hidden lg:block h-8 w-auto"
-                    src="/plants/img/leaf.png"
-                    alt="PlantSeeker"
-                  />
-                </div>
+                <a href="/plants">
+                  <div className="flex-shrink-0 flex items-center">
+                    <img
+                      className="block lg:hidden h-8 w-auto"
+                      src="/plants/img/leaf.png"
+                      alt="PlantSeeker logo"
+                    />
+                    <img
+                      className="hidden lg:block h-8 w-auto"
+                      src="/plants/img/leaf.png"
+                      alt="PlantSeeker logo"
+                    />
+                  </div>
+                </a>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
