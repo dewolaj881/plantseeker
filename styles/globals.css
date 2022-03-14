@@ -54,10 +54,15 @@ a {
 
 .inputSearch {
 	height: 40px;
-	width: 200px;
+}
+
+.searchForm {
 	display: flex;
-	position: relative;
-	left: 50%;
+	background-color: white;
+	align-items: center;
+	width: 200px;
+	justify-content: center;
+	background-color: red;
 }
 
 .buttonExplore {
@@ -126,4 +131,8 @@ a {
 	.margines2 {
 		margin-bottom: 0;
 	}
+}
+
+.cardLink:hover {
+	cursor: pointer;
 }
