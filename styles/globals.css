@@ -17,6 +17,7 @@ a {
 
 * {
 	box-sizing: border-box;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 } 
 
 .bg-main {
@@ -82,4 +83,47 @@ a {
 	background-color: #f2f2f2;
 	color: #08243a;
 	border: solid #08243a 2px;
+}
+
+.tabHeader {
+	font-size: 20px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.tabParagraph {
+	font-size: 15px;
+	text-align: justify;
+	padding: 20px;
+}
+
+.tab {
+	width: 20vw;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+}
+
+.margines {
+	margin-top: 10vh;
+	margin-bottom: 5vh;
+}
+
+.margines2 {
+	margin-bottom: 10vh;
+}
+
+@media only screen and (max-width: 1024px) {
+  .tab {
+    width: 100vw;
+		border-radius: 0px;
+  }
+	.margines {
+		margin: 0;
+	}
+	.margines2 {
+		margin-bottom: 0;
+	}
 }

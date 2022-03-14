@@ -4,8 +4,8 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 
 const navigation = [
-  { name: 'Strona główna', href: 'plants', current: true },
-  { name: 'Dbaj o rośliny', href: 'plants/explore', current: false },
+  { name: 'Strona główna', href: '/plants', current: false },
+  { name: 'Dbaj o rośliny', href: '/plants/explore', current: true },
   { name: 'Panel Administratora', href: 'https://cfgpanel.herokuapp.com/', current: false },
 ]
 
