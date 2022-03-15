@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
+    "build-windows": "npm run build && move out\\cardInfo.html.html out\\cardInfo.html && move out\\explore.html.html out\\explore.html && move out\\search.html.html out\\search.html",
+    "build-linux": "npm run build && mv out/cardInfo.html.html out/cardInfo.html && mv out/explore.html.html out/explore.html && mv out/search.html.html out/search.html",
     "start": "next start",
     "lint": "next lint"
   },

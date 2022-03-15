@@ -4,7 +4,7 @@ export default function Card({ plant = {} }) {
   const { description, englishName, family, id, img, latinName, origin, polishName, species } = plant;
   console.log(plant);
   return (
-    <Link href={`/cardInfo?id=${plant.id}`}>
+    <Link href={`/cardInfo.html?id=${plant.id}`}>
       <div className="cardLink">
         <div>
           <img className="w-72 h-56 rounded-2xl mx-4" src={img || 'https://watchandlearn.scholastic.com/content/dam/classroom-magazines/watchandlearn/videos/animals-and-plants/plants/what-are-plants-/What-Are-Plants.jpg'} alt={polishName} />
