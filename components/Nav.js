@@ -6,7 +6,7 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline'
 const navigation = [
   { name: 'Strona główna', href: 'plants', current: true },
   { name: 'Dbaj o rośliny', href: 'plants/explore', current: false },
-  { name: 'Panel Administratora', href: 'https://cfgpanel.panszelescik.pl/', current: false },
+  { name: 'Panel Administratora', href: 'https://cfgpanel.herokuapp.com/', current: false },
 ]
 
 function classNames(...classes) {
