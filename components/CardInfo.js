@@ -1,4 +1,6 @@
 import getImageUrl from '../utils/getImageUrl.js';
+import Description from './plant/Description.js';
+import LatinNameCardInfo from './plant/LatinNameCardInfo.js';
 import PlantImage from './PlantImage.js';
 import QRCode from './QRCode';
 import useUrl from '../utils/useUrl';
@@ -49,13 +51,13 @@ export default function CardInfo({id}) {
   return (
     <div className="h-content flex flex-wrap justify-between">
       <div className="p-10 ">
-        <h1 className="text-3xl text-white pb-10"><b>{polishName}</b> <span>{latinName}</span></h1>
+        <h1 className="text-3xl text-white pb-10"><b>{polishName}</b> <LatinNameCardInfo latinName={latinName}/></h1>
         <div className="flex space-x-4 flex-wrap">
           {(images || []).map((image) => <PlantImage key={image.img_name} src={getImageUrl(image)} alt={polishName}/>)}
           <QRCode url={url} size="500"/>
         </div>
       </div>
-      <div className="max-w-6xl text-center p-10 text-white text-justify">{description}</div>
+      <Description description={description}/>
     </div>
   );
 }
