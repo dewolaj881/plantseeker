@@ -1,4 +1,4 @@
-export default function Error() {
+export default function Error({text = 'Wystąpił błąd podczas wczytywania bazy!'}) {
   return (
     <div className="flex justify-center items-center mt-56">
       <button type="button" className="text-white text-3xl flex justify-center" disabled>
@@ -6,7 +6,7 @@ export default function Error() {
              stroke="currentColor" strokeWidth="2">
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
         </svg>
-        Wystąpił błąd podczas wczytywania bazy!
+        {text}
       </button>
     </div>
   );

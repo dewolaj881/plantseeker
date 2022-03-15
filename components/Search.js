@@ -14,6 +14,10 @@ export default function Search({value}) {
     return <Error/>;
   }
 
+  if (data.length === 0) {
+    return <Error text="Nie znaleziono!"/>;
+  }
+
   return (
     <div className="flex flex-wrap p-10 justify-center">
       {(data || []).map((plant) => <Card key={plant.id} plant={plant}/>)}
