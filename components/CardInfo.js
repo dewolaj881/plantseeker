@@ -21,7 +21,7 @@ export default function CardInfo({id}) {
   console.log(plant);
 
   return (
-    <div className="h-screen bg-secondary flex flex-wrap justify-between">
+    <div className="h-content flex flex-wrap justify-between">
       <div className="p-10 ">
         <h1 className="text-3xl text-white pb-10"><b>{polishName}</b> <span>{latinName}</span></h1>
         <div className="flex space-x-4 flex-wrap">
