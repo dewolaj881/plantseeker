@@ -20,6 +20,10 @@ export default function CardInfo({id}) {
     return <Error/>;
   }
 
+  if (!plant) {
+    return <Error text="Nie znaleziono!"/>;
+  }
+
   const {
     polishName,
     latinName,
