@@ -1,5 +1,6 @@
 import {QueryClient, QueryClientProvider} from 'react-query';
 import Input from '../components/Input.js';
+import Nav from '../components/Nav.js';
 import Search from '../components/Search.js';
 import {useState} from 'react';
 
@@ -14,6 +15,7 @@ export default function Home() {
 
   return (
     <div className="bg-main h-content lg:h-screen">
+      <Nav/>
       <div className="py-16">
         <a className="flex justify-center items-center" href="/plants">
           <img
