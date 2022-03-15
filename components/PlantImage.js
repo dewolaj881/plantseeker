@@ -1,3 +1,5 @@
-export default function PlantImage({image}) {
-  return <img src={`http://codeforgreen.zspwrzesnia.pl/plants/database_img/${image}`}/>;
+export default function PlantImage({src, alt}) {
+  return (
+    <img height="500" width="500" src={src} alt={alt}/>
+  );
 }
