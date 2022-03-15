@@ -54,6 +54,12 @@ a {
 
 .inputSearch {
 	height: 40px;
+	width: 344px;
+	border-radius: 12px;
+}
+
+input:focus-visible {
+	outline:none;
 }
 
 .searchForm {
