@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import getImageUrl from '../utils/getImageUrl.js';
+import LatinName from './plant/LatinName.js';
 
 export default function Card({plant = {}}) {
   const {
@@ -39,7 +40,7 @@ export default function Card({plant = {}}) {
                src={getImageUrl(images?.[0])}
                alt={polishName}/>
           <div className="text-xl w-72 bg-transparent text-white font-bold minusMargin">
-            <h1 className="text-center ml-6"><b>{polishName}</b> <span className="font-light">{latinName}</span></h1>
+            <h1 className="text-center ml-6"><b>{polishName}</b> {latinName && <LatinName latinName={latinName}/>}</h1>
           </div>
         </div>
       </div>
