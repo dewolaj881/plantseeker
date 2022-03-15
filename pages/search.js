@@ -13,7 +13,7 @@ export default function Home() {
   }
 
   return (
-    <div className="bg-main h-screen">
+    <div className="bg-main h-content lg:h-screen">
       <div className="py-16">
         <a className="flex justify-center items-center" href="/plants">
           <img
