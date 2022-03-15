@@ -1,7 +1,7 @@
-import { QueryClient, QueryClientProvider } from 'react-query';
+import {QueryClient, QueryClientProvider} from 'react-query';
 import Input from '../components/Input.js';
 import Search from '../components/Search.js';
-import { useState } from 'react';
+import {useState} from 'react';
 
 const queryClient = new QueryClient();
 
@@ -9,8 +9,8 @@ export default function Home() {
   const [value, setValue] = useState('');
 
   const changeHandler = (event) => {
-    setValue(event.target.value)
-  }
+    setValue(event.target.value);
+  };
 
   return (
     <div className="bg-main h-content lg:h-screen">
@@ -26,11 +26,11 @@ export default function Home() {
       </div>
 
       <div className="flex justify-center">
-        <Input changeHandler={changeHandler} value={value} placeholder="Wyszukaj..." />
+        <Input changeHandler={changeHandler} value={value} placeholder="Wyszukaj..."/>
       </div>
       <QueryClientProvider client={queryClient}>
-        <Search value={value} />
+        <Search value={value}/>
       </QueryClientProvider>
     </div>
-  )
+  );
 }

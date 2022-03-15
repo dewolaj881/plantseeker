@@ -1,32 +1,32 @@
-/* This example requires Tailwind CSS v2.0+ */
-import { Disclosure } from '@headlessui/react'
-import { MenuIcon, XIcon } from '@heroicons/react/outline'
+import {Disclosure} from '@headlessui/react';
+import {MenuIcon, XIcon} from '@heroicons/react/outline';
 
 const navigation = [
-  { name: 'Strona główna', href: '/plants', current: true },
-  { name: 'Dbaj o rośliny', href: '/plants/explore.html', current: false },
-  { name: 'Panel Administratora', href: 'https://cfgpanel.herokuapp.com/', current: false },
-]
+  {name: 'Strona główna', href: '/plants', current: true},
+  {name: 'Dbaj o rośliny', href: '/plants/explore.html', current: false},
+  {name: 'Panel Administratora', href: 'https://cfgpanel.herokuapp.com/', current: false}
+];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(' ');
 }
 
 export default function Example() {
   return (
     <Disclosure as="nav" className="bg-main">
-      {({ open }) => (
+      {({open}) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
             <div className="relative flex items-center justify-between h-16">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-white hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button
+                  className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-white hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Otwórz menu główne</span>
                   {open ? (
-                    <XIcon className="block h-6 w-6" aria-hidden="true" />
+                    <XIcon className="block h-6 w-6" aria-hidden="true"/>
                   ) : (
-                    <MenuIcon className="block h-6 w-6" aria-hidden="true" />
+                    <MenuIcon className="block h-6 w-6" aria-hidden="true"/>
                   )}
                 </Disclosure.Button>
               </div>
@@ -87,5 +87,5 @@ export default function Example() {
         </>
       )}
     </Disclosure>
-  )
+  );
 }
