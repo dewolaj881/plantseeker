@@ -32,7 +32,7 @@ a {
 /* Showcase styles */
 
 .bg-showcase {
-	background-image: url(../public//img/showcaseBackground_1.png);
+	background-image: url(../public//img/showcaseBackground_1.webp);
 	height: calc(100vh - 64px);
 	width: 100%;
 }
