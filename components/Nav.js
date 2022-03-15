@@ -1,13 +1,14 @@
 import {Disclosure} from '@headlessui/react';
 import {MenuIcon, XIcon} from '@heroicons/react/outline';
+import Link from 'next/link';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
 const navigation = [
-  {name: 'Strona główna', href: '/plants'},
-  {name: 'Dbaj o rośliny', href: '/plants/explore.html'},
+  {name: 'Strona główna', href: '/'},
+  {name: 'Dbaj o rośliny', href: '/explore.html'},
   {name: 'Panel administratora', href: 'https://cfgpanel.herokuapp.com/'}
 ];
 
@@ -31,7 +32,7 @@ export default function Nav({current}) {
                 </Disclosure.Button>
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-between">
-                <a href="/plants">
+                <Link href="/">
                   <div className="flex-shrink-0 flex items-center">
                     <img
                       className="block lg:hidden h-8 w-auto"
@@ -44,21 +45,24 @@ export default function Nav({current}) {
                       alt="PlantSeeker logo"
                     />
                   </div>
-                </a>
+                </Link>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
                         href={item.href}
-                        className={classNames(
-                          current === item.name ? 'bg-gray-900 text-white' : 'text-white hover:bg-gray-700 hover:text-white',
-                          'px-3 py-2 rounded-md text-sm font-medium'
-                        )}
-                        aria-current={current === item.name ? 'page' : undefined}
                       >
-                        {item.name}
-                      </a>
+                        <a
+                          className={classNames(
+                            current === item.name ? 'bg-gray-900 text-white' : 'text-white hover:bg-gray-700 hover:text-white',
+                            'px-3 py-2 rounded-md text-sm font-medium'
+                          )}
+                          aria-current={current === item.name ? 'page' : undefined}
+                        >
+                          {item.name}
+                        </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -69,18 +73,22 @@ export default function Nav({current}) {
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as="a"
-                  href={item.href}
-                  className={classNames(
-                    item.current ? 'bg-green-900 text-white' : 'text-green-300 hover:bg-green-700 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium'
-                  )}
-                  aria-current={item.current ? 'page' : undefined}
-                >
-                  {item.name}
-                </Disclosure.Button>
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    passHref={true}
+                  >
+                    <Disclosure.Button
+                      as="a"
+                      className={classNames(
+                        item.current ? 'bg-green-900 text-white' : 'text-green-300 hover:bg-green-700 hover:text-white',
+                        'block px-3 py-2 rounded-md text-base font-medium'
+                      )}
+                      aria-current={item.current ? 'page' : undefined}
+                    >
+                      {item.name}
+                    </Disclosure.Button>
+                  </Link>
               ))}
             </div>
           </Disclosure.Panel>
