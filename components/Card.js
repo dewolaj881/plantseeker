@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export default function Card({ plant = {} }) {
-  const { description, englishName, family, id, img, latinName, origin, polishName, species } = plant; // Takie pola są w obecnym API, każde może być nullem, id jest liczbą, reszta string
+  const { description, englishName, family, id, img, latinName, origin, polishName, species } = plant;
   console.log(plant);
   return (
     <Link href={`/cardInfo?id=${plant.id}`}>
