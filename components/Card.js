@@ -4,7 +4,7 @@ export default function Card({ plant = {} }) {
   const { description, englishName, family, id, img, latinName, origin, polishName, species } = plant; // Takie pola są w obecnym API, każde może być nullem, id jest liczbą, reszta string
   console.log(plant);
   return (
-    <Link href={"/search/plant_" + plant.polishName}>
+    <Link href={`/cardInfo?id=${plant.id}`}>
       <div className="cardLink">
         <div>
           <img className="w-72 h-56 rounded-2xl mx-4" src={img || 'https://watchandlearn.scholastic.com/content/dam/classroom-magazines/watchandlearn/videos/animals-and-plants/plants/what-are-plants-/What-Are-Plants.jpg'} alt={polishName} />
