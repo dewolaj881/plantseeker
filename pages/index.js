@@ -4,7 +4,7 @@ import Showcase from '../components/Showcase';
 export default function Home() {
   return (
     <>
-      <Nav/>
+      <Nav current="Strona główna"/>
       <Showcase/>
     </>
   );

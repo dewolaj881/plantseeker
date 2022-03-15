@@ -1,17 +1,17 @@
 import {Disclosure} from '@headlessui/react';
 import {MenuIcon, XIcon} from '@heroicons/react/outline';
 
-const navigation = [
-  {name: 'Strona główna', href: '/plants', current: true},
-  {name: 'Dbaj o rośliny', href: '/plants/explore.html', current: false},
-  {name: 'Panel Administratora', href: 'https://cfgpanel.herokuapp.com/', current: false}
-];
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function Example() {
+const navigation = [
+  {name: 'Strona główna', href: '/plants'},
+  {name: 'Dbaj o rośliny', href: '/plants/explore.html'},
+  {name: 'Panel administratora', href: 'https://cfgpanel.herokuapp.com/'}
+];
+
+export default function Nav({current}) {
   return (
     <Disclosure as="nav" className="bg-main">
       {({open}) => (
@@ -52,10 +52,10 @@ export default function Example() {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-white hover:bg-gray-700 hover:text-white',
+                          current === item.name ? 'bg-gray-900 text-white' : 'text-white hover:bg-gray-700 hover:text-white',
                           'px-3 py-2 rounded-md text-sm font-medium'
                         )}
-                        aria-current={item.current ? 'page' : undefined}
+                        aria-current={current === item.name ? 'page' : undefined}
                       >
                         {item.name}
                       </a>

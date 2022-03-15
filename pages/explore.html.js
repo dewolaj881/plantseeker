@@ -1,10 +1,10 @@
 import Tab from '../components/plantsTips/Tab';
-import Nav from '../components/plantsTips/LazyNav';
+import Nav from '../components/Nav';
 
 export default function Home() {
   return (
     <div className="h-content bg-secondary">
-      <Nav></Nav>
+      <Nav current="Dbaj o rośliny"/>
       <div className="flex justify-center space-x-0 flex-col lg:flex-row lg:space-x-10 margines">
         <Tab backgroundColor={'bg-gray-100'} img={'/plants/img/tabs/plant.png'} alt={'witam'}
              h1={'Podlewanie kwiatów herbatą'}
