@@ -36,7 +36,7 @@ export default function Card({plant = {}}) {
     <Link href={`/cardInfo.html?id=${id}`}>
       <div className="cardLink">
         <div>
-          <img className="w-72 h-56 rounded-2xl mx-4 object-cover"
+          <img className="w-72 h-56 rounded-2xl mx-4 object-scale-down"
                src={getImageUrl(images?.[0])}
                alt={polishName}/>
           <div className="text-xl w-72 bg-transparent text-white font-bold minusMargin">

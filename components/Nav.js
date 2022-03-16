@@ -8,6 +8,7 @@ function classNames(...classes) {
 
 const navigation = [
   {name: 'Strona główna', href: '/'},
+  {name: 'Wyszukaj', href: '/search.html'},
   {name: 'Dbaj o rośliny', href: '/explore.html'},
   {name: 'Panel administratora', href: 'https://cfgpanel.herokuapp.com/'}
 ];
