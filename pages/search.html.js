@@ -12,7 +12,7 @@ export default function Home() {
 
   return (
     <div className="bg-main h-content lg:h-screen">
-      <Nav/>
+      <Nav current="Wyszukaj"/>
       <div className="py-16">
         <a className="flex justify-center items-center" href="/plants">
           <img
