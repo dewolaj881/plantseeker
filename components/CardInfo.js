@@ -61,7 +61,7 @@ export default function CardInfo({id}) {
           <h1 className="text-3xl text-white pb-10"><b>{polishName}</b> <LatinNameCardInfo latinName={latinName}/></h1>
           <div className="flex space-x-4 flex-wrap">
             {(images || []).map((image) => <PlantImage key={image.img_name} src={getImageUrl(image)} alt={polishName}/>)}
-            <QRCode url={url} size="500"/>
+            <QRCode url={url} size="512"/>
           </div>
         </div>
         <Description description={description}/>
