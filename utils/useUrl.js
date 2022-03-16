@@ -4,5 +4,5 @@ export default function useUrl() {
   const router = useRouter();
   const query = Object.entries(router.query).map(([name, value]) => `${name}=${encodeURIComponent(value)}`).join('&');
 
-  return `http://codeforgreen.zspwrzesnia.pl${router.basePath}${router.pathname}.html${query ? `?${query}` : ''}`;
+  return `http://codeforgreen.zspwrzesnia.pl${router.basePath}${router.pathname}${query ? `?${query}` : ''}`;
 }
