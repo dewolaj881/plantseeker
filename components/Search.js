@@ -1,10 +1,12 @@
 import {useAllPlants} from '../utils/useApi.js';
+import useSearch from '../utils/useSearch.js';
 import Card from './Card.js';
 import Error from './Error';
 import Loading from './Loading';
 
 export default function Search({value}) {
   const {isLoading, data = [], error} = useAllPlants(value);
+  useSearch(value);
 
   if (isLoading) {
     return <Loading/>;
