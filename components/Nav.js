@@ -1,5 +1,5 @@
-import {Disclosure} from '@headlessui/react';
-import {MenuIcon, XIcon} from '@heroicons/react/outline';
+import { Disclosure } from '@headlessui/react';
+import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
 
 function classNames(...classes) {
@@ -7,16 +7,16 @@ function classNames(...classes) {
 }
 
 const navigation = [
-  {name: 'Strona główna', href: '/'},
-  {name: 'Wyszukaj', href: '/search.html'},
-  {name: 'Dbaj o rośliny', href: '/explore.html'},
-  {name: 'Panel administratora', href: 'https://cfgpanel.herokuapp.com/'}
+  { name: 'Strona główna', href: '/' },
+  { name: 'Wyszukaj', href: '/search.html' },
+  { name: 'Dbaj o rośliny', href: '/explore.html' },
+  { name: 'Panel administratora', href: 'https://cfgpanel.herokuapp.com/' }
 ];
 
-export default function Nav({current}) {
+export default function Nav({ current }) {
   return (
     <Disclosure as="nav" className="bg-main">
-      {({open}) => (
+      {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
             <div className="relative flex items-center justify-between h-16">
@@ -26,9 +26,9 @@ export default function Nav({current}) {
                   className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-white hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Otwórz menu główne</span>
                   {open ? (
-                    <XIcon className="block h-6 w-6" aria-hidden="true"/>
+                    <XIcon className="block h-6 w-6" aria-hidden="true" />
                   ) : (
-                    <MenuIcon className="block h-6 w-6" aria-hidden="true"/>
+                    <MenuIcon className="block h-6 w-6" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
               </div>
@@ -74,22 +74,22 @@ export default function Nav({current}) {
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    passHref={true}
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  passHref={true}
+                >
+                  <Disclosure.Button
+                    as="a"
+                    className={classNames(
+                      item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                      'block px-3 py-2 rounded-md text-base font-medium'
+                    )}
+                    aria-current={item.current ? 'page' : undefined}
                   >
-                    <Disclosure.Button
-                      as="a"
-                      className={classNames(
-                        item.current ? 'bg-green-900 text-white' : 'text-green-300 hover:bg-green-700 hover:text-white',
-                        'block px-3 py-2 rounded-md text-base font-medium'
-                      )}
-                      aria-current={item.current ? 'page' : undefined}
-                    >
-                      {item.name}
-                    </Disclosure.Button>
-                  </Link>
+                    {item.name}
+                  </Disclosure.Button>
+                </Link>
               ))}
             </div>
           </Disclosure.Panel>
