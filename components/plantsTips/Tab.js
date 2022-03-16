@@ -1,10 +1,10 @@
-import Text from "./Text"
+import Text from './Text';
 
-export default function Tab(props) {
+export default function Tab({backgroundColor, img, alt, h1, p}) {
   return (
-    <div className={"tab w-24 " + props.backgroundColor}>
-      <img height="150px" width="150px" className="p-8" src={props.img} alt={props.alt} />
-      <Text h1={props.h1} p={props.p}></Text>
+    <div className={'tab w-24 ' + backgroundColor}>
+      <img height="150px" width="150px" className="p-8" src={img} alt={alt}/>
+      <Text h1={h1} p={p}></Text>
     </div>
-  )
+  );
 }

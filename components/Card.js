@@ -1,18 +1,49 @@
-import Link from "next/link";
+import Link from 'next/link';
+import getImageUrl from '../utils/getImageUrl.js';
+import LatinNameCard from './plant/LatinNameCard.js';
 
-export default function Card({ plant = {} }) {
-  const { description, englishName, family, id, img, latinName, origin, polishName, species } = plant;
+export default function Card({plant = {}}) {
+  const {
+    id,
+    polishName,
+    latinName,
+    polishFamily,
+    latinFamily,
+    decorativeness,
+    plantUsage,
+    description,
+    plant_type,
+    images, // []
+    toxicity,
+    lightConditions,
+    subsoil,
+    watering,
+    sort,
+    height,
+    bark,
+    shoots,
+    leaves,
+    flowers_desc,
+    flowers_date, // yyyy-MM-dd
+    fruits_desc,
+    fruits_date, // yyyy-MM-dd
+    origin
+  } = plant; // To wszystko jest w API i wszystko może być nullem!
+
   console.log(plant);
+
   return (
-    <Link href={`/cardInfo.html?id=${plant.id}`}>
+    <Link href={`/cardInfo.html?id=${id}`}>
       <div className="cardLink">
         <div>
-          <img className="w-72 h-56 rounded-2xl mx-4" src={img || 'https://watchandlearn.scholastic.com/content/dam/classroom-magazines/watchandlearn/videos/animals-and-plants/plants/what-are-plants-/What-Are-Plants.jpg'} alt={polishName} />
+          <img className="w-72 h-56 rounded-2xl mx-4 object-cover"
+               src={getImageUrl(images?.[0])}
+               alt={polishName}/>
           <div className="text-xl w-72 bg-transparent text-white font-bold minusMargin">
-            <h1 className="text-center ml-6"><b>{/*polishName*/ "Magnolia"}</b> <span className="font-light">{"Magnolia L."}</span></h1>
+            <h1 className="text-center ml-6"><b>{polishName}</b> <LatinNameCard latinName={latinName}/></h1>
           </div>
         </div>
       </div>
-    </Link >
-  )
+    </Link>
+  );
 }

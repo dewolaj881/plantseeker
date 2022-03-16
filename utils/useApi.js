@@ -1,6 +1,6 @@
 import {useQuery} from 'react-query';
 
-export default function useFetch(url) {
+export default function useApi(url) {
   return useQuery(url, () => fetch(url).then((res) => {
     if (res.ok) {
       return res.json();
@@ -13,18 +13,17 @@ export default function useFetch(url) {
 }
 
 export function useApiFetch(path) {
-  return useFetch(`https://cfpapi.herokuapp.com/api/${path}`);
+  return useApi(`https://cfpapi.herokuapp.com/api/${path}`);
 }
 
 export function useAllPlants() {
-  return useApiFetch('getallplants');
+  return useApiFetch('getAllPlants');
 }
 
 export function useSearchPlants(query) {
-  //encodeURIComponent(query);
-  return useAllPlants(); // TODO brak API
+  return useApiFetch(`findByKeyword?keyword=${encodeURIComponent(query)}`);
 }
 
 export function usePlant(id) {
-  return useApiFetch(`getPlantById?id=${encodeURIComponent(id)}`)
+  return useApiFetch(`getPlantById?id=${encodeURIComponent(id)}`);
 }
