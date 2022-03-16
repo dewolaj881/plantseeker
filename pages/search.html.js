@@ -1,10 +1,7 @@
-import {QueryClient, QueryClientProvider} from 'react-query';
 import Input from '../components/Input.js';
 import Nav from '../components/Nav.js';
 import Search from '../components/Search.js';
 import {useState} from 'react';
-
-const queryClient = new QueryClient();
 
 export default function Home() {
   const [value, setValue] = useState('');
@@ -30,9 +27,7 @@ export default function Home() {
       <div className="flex justify-center">
         <Input changeHandler={changeHandler} value={value} placeholder="Wyszukaj..."/>
       </div>
-      <QueryClientProvider client={queryClient}>
-        <Search value={value}/>
-      </QueryClientProvider>
+      <Search value={value}/>
     </div>
   );
 }
