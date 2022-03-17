@@ -5,24 +5,25 @@ import LatinNameCardInfo from './plant/LatinNameCardInfo.js';
 import PlantImage from './PlantImage.js';
 import QRCode from './QRCode';
 import useUrl from '../utils/useUrl';
-import {usePlant} from '../utils/useApi.js';
+import { usePlant } from '../utils/useApi.js';
 import Loading from './Loading';
 import Error from './Error';
+import { PrinterIcon } from '@heroicons/react/outline';
 
-export default function CardInfo({id}) {
+export default function CardInfo({ id }) {
   const url = useUrl();
-  const {isLoading, data: plant = {}, error} = usePlant(id);
+  const { isLoading, data: plant = {}, error } = usePlant(id);
 
   if (isLoading) {
-    return <Loading/>;
+    return <Loading />;
   }
 
   if (error) {
-    return <Error/>;
+    return <Error />;
   }
 
   if (!plant) {
-    return <Error text="Nie znaleziono!"/>;
+    return <Error text="Nie znaleziono!" />;
   }
 
   const {
@@ -52,21 +53,28 @@ export default function CardInfo({id}) {
   } = plant; // To wszystko jest w API i wszystko może być nullem!
 
   console.log(plant);
-
   return (
     <>
-      <HeadTitle title={polishName}/>
+      <HeadTitle title={polishName} />
       <div className="h-content flex flex-col">
-        <div className="p-10">
-          <div className="flex flex-wrap">
-            {(images || []).map((image) => <PlantImage key={image.img_name} src={getImageUrl(image)} alt={polishName}/>)}
+        <div>
+          <div className="grid grid-cols-5 gap-2 justify-center m-2">
+            {(images || []).map((image) => <PlantImage key={image.img_name} src={getImageUrl(image)} alt={polishName} />)}
           </div>
-          <h1 className="text-3xl text-white pt-10"><b>{polishName}</b> <LatinNameCardInfo latinName={latinName}/></h1>
+          <div className='text-white p-5'>
+            <h1 className="text-3xl text-white"><b>{polishName}</b> <LatinNameCardInfo latinName={latinName} /></h1>
+            <h2>Charakterystyka rośliny: { }</h2>
+            <h2>Nazwa rodziny: {polishFamily} | {latinFamily}</h2>
+            <h2>Dekoracyjność: {decorativeness}</h2>
+            <h2>{plantUsage !== '' ? `Wykorzystanie: ${plantUsage}` : ""}</h2>
+          </div>
         </div>
-        <Description description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sollicitudin mollis tortor, et fermentum orci vestibulum sed. Nulla egestas vehicula sem, sit amet mattis nulla. Suspendisse ut sapien vel massa mollis gravida at in lorem. Nam et lobortis nunc, dapibus posuere ex. Donec sit amet mattis tortor. Donec imperdiet fermentum elit non feugiat. Praesent eget odio at elit tempor euismod tempor at nisl. Vestibulum ac vestibulum dui, eget bibendum lorem. Cras pretium, augue sit amet ultrices hendrerit, orci mi vehicula mauris, vel luctus purus nunc nec lectus. Integer hendrerit sit amet nunc a eleifend. Proin ac blandit augue. Duis sodales nisl vitae diam sodales auctor et a quam. Praesent sem sem, cursus vel faucibus at, pharetra eu turpis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."}/>
-        <div className="mt-24 text-white">
-          <h2>Drukuj kod QR</h2>
-          <QRCode url={url} size="512"/>
+        <Description description={description} />
+        <div className='text-white p-5 flex justify-center'>
+          <a className='bg-gray-900 p-5 rounded-2xl hover:bg-gray-600 flex items-center' href="javascript:if(window.print)window.print()"><PrinterIcon className='h-5 w-5 mr-2' /> Wydrukuj kod QR</a>
+          <div className='myDivToPrint hidden' media="print">
+            <QRCode className="test" url={url} size="512" />
+          </div>
         </div>
       </div>
     </>
