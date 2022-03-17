@@ -1,7 +1,5 @@
 import getImageUrl from '../utils/getImageUrl.js';
 import HeadTitle from './HeadTitle.js';
-import Description from './plant/Description.js';
-import LatinNameCardInfo from './plant/LatinNameCardInfo.js';
 import PlantImage from './PlantImage.js';
 import QRCode from './QRCode';
 import useUrl from '../utils/useUrl';
@@ -64,14 +62,14 @@ export default function CardInfo({ id }) {
             {(images || []).map((image) => <PlantImage key={image.img_name} src={getImageUrl(image)} alt={polishName} />)}
           </div>
           <div className='text-white p-5'>
-            <h1 className="text-3xl text-white"><b>{polishName}</b> <LatinNameCardInfo latinName={latinName} /></h1>
+            <h1 className="text-3xl text-white"><b>{polishName}</b> {latinName && <i>{latinName}</i>}</h1>
             <h2>Charakterystyka rośliny: { }</h2>
-            <h2>Nazwa rodziny: {polishFamily} | {latinFamily}</h2>
-            <h2>Dekoracyjność: {decorativeness}</h2>
-            <h2>{plantUsage !== '' ? `Wykorzystanie: ${plantUsage}` : ""}</h2>
+            {(polishFamily || latinFamily) && <h2>Nazwa rodziny: {polishFamily}{latinFamily && <>{polishFamily && <> | </>}<i>{latinFamily}</i></>}</h2>}
+            {decorativeness && <h2>Dekoracyjność: {decorativeness}</h2>}
+            {plantUsage && <h2>Wykorzystanie: {plantUsage}</h2>}
           </div>
         </div>
-        <Description description={description} />
+        {description && <div className="max-w-6xl py-5 px-5 text-white text-justify">{description}</div>}
         <div className='text-white p-5 flex justify-center'>
           <a className='bg-gray-900 p-5 rounded-2xl hover:bg-gray-600 flex items-center' href="javascript:if(window.print)window.print()"><PrinterIcon className='h-5 w-5 mr-2' /> Wydrukuj kod QR</a>
           <div className='myDivToPrint hidden' media="print">
