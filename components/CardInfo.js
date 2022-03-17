@@ -49,7 +49,9 @@ export default function CardInfo({ id }) {
     flowers_date,
     fruits_desc,
     fruits_date,
-    origin
+    origin,
+    published,
+    username
   } = plant; // To wszystko jest w API i wszystko może być nullem!
 
   console.log(plant);
