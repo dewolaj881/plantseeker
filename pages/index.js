@@ -5,9 +5,9 @@ import Showcase from '../components/Showcase';
 export default function Home() {
   return (
     <>
-      <HeadTitle/>
+      <HeadTitle />
       <Nav current="Strona główna"/>
-      <Showcase/>
+      <Showcase />
     </>
   );
 }

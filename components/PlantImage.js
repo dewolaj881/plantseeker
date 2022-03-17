@@ -1,5 +1,5 @@
-export default function PlantImage({src, alt}) {
+export default function PlantImage({ src, alt }) {
   return (
-    <img height="150" width="150" src={src} alt={alt}/>
+    <img height="150" width="370" src={src} alt={alt} />
   );
 }
