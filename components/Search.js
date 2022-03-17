@@ -21,7 +21,7 @@ export default function Search({ value }) {
   }
 
   return (
-    <div className="flex flex-wrap mt-10 sm:mt-none sm:p-10 justify-center">
+    <div className="flex flex-wrap mt-10 sm:mt-none sm:p-10 justify-center gap-4">
       {(data || []).map((plant) => <Card key={plant.id} plant={plant} />)}
     </div>
   );
