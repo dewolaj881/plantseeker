@@ -12,7 +12,7 @@ export default function Card({ plant = {} }) {
     plantUsage,
     description,
     plant_type,
-    images, // []
+    images,
     toxicity,
     lightConditions,
     subsoil,
@@ -23,10 +23,12 @@ export default function Card({ plant = {} }) {
     shoots,
     leaves,
     flowers_desc,
-    flowers_date, // yyyy-MM-dd
+    flowers_date,
     fruits_desc,
-    fruits_date, // yyyy-MM-dd
-    origin
+    fruits_date,
+    origin,
+    published,
+    username
   } = plant; // To wszystko jest w API i wszystko może być nullem!
 
   console.log(plant);
