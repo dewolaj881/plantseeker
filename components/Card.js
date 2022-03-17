@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import getImageUrl from '../utils/getImageUrl.js';
-import LatinNameCard from './plant/LatinNameCard.js';
 
 export default function Card({ plant = {} }) {
   const {
@@ -34,14 +33,14 @@ export default function Card({ plant = {} }) {
 
   return (
     <Link href={`/cardInfo.html?id=${id}`}>
-      <div className="cardLink">
-        <div>
-          <img className="w-72 h-52 rounded-3xl mx-4 object-scale-down"
+      <div className="cardLink mx-1 bg-black/[.25] border border-gray-600">
+        <div className="relative">
+          <img className="w-72 h-52 object-scale-down"
             src={getImageUrl(images?.[0])}
             alt={polishName} />
-          <div className="text-xl w-72 bg-transparent text-white font-bold minusMargin">
-            <h1 className="text-center ml-6 fomt-medium">{polishName}</h1>
-          </div>
+        </div>
+        <div className="text-xl w-72 text-white bottom-0 left-0 mb-1">
+          <h1 className="text-center ml-6 mr-6 font-medium">{polishName}</h1>
         </div>
       </div>
     </Link>
