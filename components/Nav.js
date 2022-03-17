@@ -82,10 +82,10 @@ export default function Nav({ current }) {
                   <Disclosure.Button
                     as="a"
                     className={classNames(
-                      item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                      current === item.name ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                       'block px-3 py-2 rounded-md text-base font-medium'
                     )}
-                    aria-current={item.current ? 'page' : undefined}
+                    aria-current={current === item.name ? 'page' : undefined}
                   >
                     {item.name}
                   </Disclosure.Button>
