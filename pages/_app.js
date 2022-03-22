@@ -4,6 +4,7 @@ import Script from 'next/script.js';
 import {QueryClient, QueryClientProvider} from 'react-query';
 import ReactGA from 'react-ga4';
 import useAnalytics from '../utils/useAnalytics.js';
+import WybudzatorAPI from "../components/WybudzatorAPI";
 
 ReactGA.initialize('G-P78F7T2CHH');
 
@@ -22,6 +23,7 @@ function MyApp({Component, pageProps}) {
     })(window, document, "clarity", "script", "b25aljhjzr");`}
       </Script>
       <QueryClientProvider client={queryClient}>
+        <WybudzatorAPI/>
         <Component {...pageProps} />
       </QueryClientProvider>
     </>
