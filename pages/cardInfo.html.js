@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <>
-      <Nav current="Wyszukaj" />
+      <Nav />
       <CardInfo id={router.query.id} />
     </>
   );
