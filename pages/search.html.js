@@ -1,15 +1,25 @@
-import Head from 'next/head.js';
 import HeadTitle from '../components/HeadTitle.js';
 import Input from '../components/Input.js';
 import Nav from '../components/Nav.js';
 import Search from '../components/Search.js';
 import {useState} from 'react';
+import Checkbox from "../components/Checkbox";
 
 export default function Home() {
   const [value, setValue] = useState('');
+  const [doniczkowe, setDoniczkowe] = useState(true);
+  const [ogrodowe, setOgrodowe] = useState(true);
 
   const changeHandler = (event) => {
     setValue(event.target.value);
+  };
+
+  const doniczkoweHandler = (event) => {
+    setDoniczkowe(event.target.checked);
+  };
+
+  const ogrodoweHandler = (event) => {
+    setOgrodowe(event.target.checked);
   };
 
   return (
@@ -30,8 +40,12 @@ export default function Home() {
 
         <div className="flex justify-center">
           <Input changeHandler={changeHandler} value={value} placeholder="Wyszukaj..."/>
+          Doniczkowe
+          <Checkbox changeHandler={doniczkoweHandler} checked={doniczkowe}/>
+          Ogrodowe
+          <Checkbox changeHandler={ogrodoweHandler} checked={ogrodowe}/>
         </div>
-        <Search value={value}/>
+        <Search value={value} doniczkowe={doniczkowe} ogrodowe={ogrodowe}/>
       </div>
     </>
   );

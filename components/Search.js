@@ -4,7 +4,7 @@ import Card from './Card.js';
 import Error from './Error';
 import Loading from './Loading';
 
-export default function Search({ value }) {
+export default function Search({ value, doniczkowe, ogrodowe }) {
   const { isLoading, data = [], error } = useSearchPlants(value);
   useSearch(value);
 
@@ -22,7 +22,9 @@ export default function Search({ value }) {
 
   return (
     <div className="flex flex-wrap mt-10 sm:mt-none sm:p-10 justify-center gap-4">
-      {(data || []).map((plant) => <Card key={plant.id} plant={plant} />)}
+      {(data || [])
+        .filter(({plant_type}) => doniczkowe && plant_type === 'POTTED' ? true : ogrodowe && plant_type === 'GARDEN')
+        .map((plant) => <Card key={plant.id} plant={plant} />)}
     </div>
   );
 }
